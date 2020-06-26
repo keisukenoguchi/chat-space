@@ -27,9 +27,9 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: true, unique: true|
-|email|string|null: true, unique: true|
-|passward|string|null: true, unique: true|
+|name|string|unique: true|
+|email|string|unique: true|
+|passward|string|unique: true|
 
 ### Association
 - has_many :messages
@@ -42,8 +42,8 @@ Things you may want to cover:
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
-|body|text|null: true|
-|image|string|null: true|
+|body|text|
+|image|string|
 
 ### Association
 - belongs_to :user
