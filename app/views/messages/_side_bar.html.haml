@@ -6,12 +6,15 @@
           = current_user.name
         .side-bar__header-box-icon 
           .side-bar__header-box-icon__light
-          = link_to "#", class: "Contents__btn" do
+          = link_to new_group_path, class: "Contents__btn" do
             = icon('far', 'edit', class: "Contents__btn--edit")
           .side-bar__header-box-icon__left
           = link_to edit_user_path(current_user), class: "Contents__btn" do
             = icon('fas', 'cog', class: "Contents__btn--cog")
     .side-bar__group-list
-      .side-bar__group 
-        .side-bar__group-member techcamp
-        .side-bar__group-messages まだメッセージはありません。
+      - current_user.groups.each do |group|
+        .side-bar__group 
+          = link_to '#' do
+            .side-bar__group-member
+              = group.name
+            .side-bar__group-messages まだメッセージはありません。
