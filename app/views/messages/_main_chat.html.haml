@@ -2,27 +2,23 @@
   .chat-main
     .chat-main__header
       .chat-main__header-leftbox
-        .chat-main__header-title test
-        .chat-main__header-member Member:user
+        .chat-main__header-leftbox-title
+          = @group.name
+        .chat-main__header-leftbox-member
+          Member：
+          - @group.users.each do |user|
+            = user.name
       .chat-main__header-edit 
-        = link_to 'Edit', '#', class: "edit__button"
+        = link_to 'Edit', edit_group_path(@group), class: "edit__button"
 
-    .chat-main__messages
-      .chat-main__messages-info
-        .chat-main__messages-info-name user
-        .chat-main__messages-info-date 2020/06/30(Tue) 17:43.01
-      .chat-main__messages-TextBox
-        .chat-main__messages-TextBox-text おはよう！
-      .chat-main__messages-info
-        .chat-main__messages-info-name user
-        .chat-main__messages-info-date 2020/06/30(Tue) 17:53.01
-      .chat-main__messages-TextBox
-        .chat-main__messages-TextBox-text 今日は雨
+    .chat-main__Message
+      = render @messages
 
-    .chat-main__messages-form
-      .chat-main__messages-form-box
-        %input.chat-main__messages-form-box-text{:placeholder => "type a message", :type => "text", class: "form__text"}
-        %label{class: "img-icon"}
-          = icon('far', 'image')
-          %input.chat-main__messages-form-box-img{:type => "file"}
-      %input.chat-main__messages-form-send{:type => "submit", :value => "SEND", class: "submit__button"}
+    .chat-main__Footer-form
+      = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
+        .chat-main__Footer-form-box
+          = f.text_field :content, class: "chat-main__Footer-form-box-text", placeholder: "type a message"
+          = f.label :image, class: "img-icon" do
+            = icon('far', 'image')
+            = f.file_field :image, class: "chat-main__Footer-form-box-img"
+        = f.submit 'SEND', class: "chat-main__Footer-form-send"
