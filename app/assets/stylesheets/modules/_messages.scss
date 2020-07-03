@@ -17,17 +17,18 @@
        justify-content: space-between;
        align-items: center;
        padding: 0 40px;
-        &-title{
-           color: #333333;
-           font-size: 20px;
-           margin: 35px 0 0;
-        }
-        &-member{
-           color: #999999;
-           font-size: 12px;
-           margin: 15px 0 0;
-        }
-       
+         &-leftbox{
+            &-title{
+              color: #333333;
+              font-size: 20px;
+              margin: 35px 0 0;
+            }
+            &-member{
+              color: #999999;
+              font-size: 12px;
+              margin: 15px 0 0;
+            }
+         }
        &-edit{
          height: 40px;
          width: 72px;
@@ -44,60 +45,68 @@
        }
       
     }
-    &__messages {
-       height: calc(100vh - 190px);
-       background-color: #fafafa;
-       padding: 0 40px;
-       overflow: scroll;
-       &-info{
-         margin: 35px 0 0;
-         display: flex;
-         &-name{
-           font-size: 16px;
-           font-weight: bold;
-           color: #333333;
-         }
-         &-date{
-           font-size: 12px;
-           color: #999999;
-           padding: 0 0 0 10px;
-         }
-       }
-       &-TextBox{
-         margin: 12px 0 46px;
-         &-text{
-           font-size: 14px;
-           color: #434a54;
-         }
-       }
+    &__Message{
+      height: calc(100vh - 190px);
+      background-color: #fafafa;
+      padding: 35px 40px 0;
+      overflow: scroll;
+      &-messages{
+        margin: 0 0 46px 0;
+        &-info{
+          display: flex;
+              &-name{
+                font-size: 16px;
+                font-weight: bold;
+                color: #333333;
+              }
+              &-date{
+                font-size: 12px;
+                color: #999999;
+                padding: 0 0 0 10px;
+              }
+        }
+        &-TextBox{
+          margin: 12px 0 0;
+          &-text{
+            font-size: 14px;
+            color: #434a54;
+          }
+        }
+      }
     }
-    &__messages-form{
+    &__Footer-form{
        height: 90px;
        background-color: #d2d2d2;
        display: flex;
        align-items: center;
        padding: 20px 50px 20px 40px;
-       &-box{
-         height: 50px;
-         width: 100%;
+       .Form{
          display: flex;
-         position: relative;
-         &-text{
-           border: none;
-           height: 50px;
-           width: 100%;
-           padding: 0 40px 0 10px;
-         }
-         &-img{
-           height: 50px;
-           display: none;
-         }
-         .img-icon{
-           position: absolute;
-           top: 10px;
-           right: 10px;
-         }
+         width: 100%;
        }
+
+        &-box{
+          height: 50px;
+          width: 100%;
+          display: flex;
+          position: relative;
+          &-text{
+            border: none;
+            height: 50px;
+            width: 100%;
+            padding: 0 40px 0 10px;
+          }
+          &-img{
+            height: 50px;
+            display: none;
+          }
+          .img-icon{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+          }
+        }
+        
        &-send{
         border: none;
         width: 100px;
@@ -116,19 +125,6 @@
     width: 300px;
     display: flex;
     flex-direction: column;
-    &__group{
-      height: 100px;
-      color: #ffffff;
-      padding: 0 20px;
-      &-member{
-        font-size: 15px;
-        margin: 20px 0 5px 0;
-      }
-      &-messages{
-        font-size: 11px;
-        margin: 0 0 40px;
-      }
-    }
     &__header{
       height: 100px;
       background-color: #253141;
@@ -160,4 +156,27 @@
         }
       }
     } 
+    &__group-list{
+      background-color: #2f3e51;
+      height: calc(100vh - 100px);
+      padding: 0 20px;
+      overflow: scroll;
+      .groups__btn{
+        color: #fff;
+        text-decoration: none;
+      }
+      &-groups{
+        height: 100px;
+        color: #ffffff;
+        padding: 20px 0 40px;
+        &-member{
+          font-size: 15px;
+          margin: 20px 0 5px 0;
+        }
+        &-messages{
+          font-size: 11px;
+          margin: 0 0 40px;
+        }
+      }
+    }
 }
